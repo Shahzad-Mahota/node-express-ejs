@@ -1,0 +1,97 @@
+<!-- include header file -->
+<%- include('common/header'); %>
+
+<style>
+  .form-control {
+    height: 50px;
+  }
+</style>
+<!-- page content -->
+<div class="container py-5">
+  <section class="mb-4">
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+    <p class="text-center w-responsive mx-auto mb-5">
+      Do you have any questions? Please do not hesitate to contact us directly.
+      Our team will come back to you within a matter of hours to help you.
+    </p>
+
+    <div class="row">
+      <!-- contact form -->
+      <div class="col-md-9 mb-md-0 mb-5">
+        <form id="contact-form" action="/contact-us" method="POST">
+          <div class="row">
+            <!-- name -->
+            <div class="col-md-6">
+                <input type="text" id="name" name="name" class="form-control" />
+                <label for="name" class="">Your name</label>
+            </div>
+            <!--emaail-->
+            <div class="col-md-6">
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                />
+                <label for="email" class="">Your email</label>
+            </div>
+            <!-- subject -->
+            <div class="col-md-12">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="form-control"
+                />
+                <label for="subject" class="">Subject</label>
+            </div>
+            <!-- message-->
+            <div class="col-md-12">
+                <textarea
+                  type="text"
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="form-control md-textarea"
+                ></textarea>
+                <label for="message">Your message</label>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-success" type="submit">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- contact info -->
+      <div class="col-md-3 text-center">
+        <ul class="list-unstyled mb-0">
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <p><%= data.contactInfo.address %></p>
+          </li>
+          <li>
+            <i class="fas fa-phone mt-4"></i>
+            <p><%= data.contactInfo.mobile_no %></p>
+          </li>
+          <li>
+            <i class="fas fa-envelope mt-4"></i>
+            <p><%= data.contactInfo.email %></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("button").click(function (e) {
+      e.preventDefault();
+      alert("form submitted successfully");
+    });
+  });
+</script>
+
+<!-- include footer file -->
+<%- include('common/footer'); %>

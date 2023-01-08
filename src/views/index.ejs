@@ -1,0 +1,23 @@
+<!-- include header file -->
+<%- include('common/header'); %>
+
+<!-- page content -->
+<div class="contaniner-fluid bg-primary-light-cust">
+
+  <!-- homepage content section -->
+  <section>
+    <div class="container py-5">
+      <div class="row">
+        <!-- looping in ejs -->
+        <% data.pageContent.forEach(function(content){ %>
+        <h5><%= content.title %></h5>
+        <p><%= content.description %></p>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+  
+</div>
+
+<!-- include footer file -->
+<%- include('common/footer'); %>

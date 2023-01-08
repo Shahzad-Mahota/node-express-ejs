@@ -1,0 +1,74 @@
+<!-- include header file -->
+<%- include('common/header'); %>
+
+<style>
+  table{
+    width: 100%;
+  }
+  th{
+    background-color: lightblue;
+    padding: 5px;
+
+  }
+  td {
+    padding: 5px 10px;
+  }
+  td:nth-child(odd) {
+    font-weight: 600;
+  }
+</style>
+
+<!-- page content -->
+<div class="container py-5">
+  <h1 class="text-center">Project Details</h1>
+  <div class="table-data">
+    <table border="1">
+      <!-- PROJECT GENERAL INFO -->
+      <thead>
+        <th colspan="2">General Information</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td><%= data.projectDetail.name %></td>
+        </tr>
+        <tr>
+          <td>Version</td>
+          <td><%= data.projectDetail.version %></td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td><%= data.projectDetail.description %></td>
+        </tr>
+        <tr>
+          <td>Entry Point</td>
+          <td><%= data.projectDetail.main %></td>
+        </tr>
+        <tr>
+          <td>Author</td>
+          <td><%= data.projectDetail.author %></td>
+        </tr>
+        <tr>
+          <td>License</td>
+          <td><%= data.projectDetail.license %></td>
+        </tr>
+      </tbody>
+
+      <!-- PROJECT DEPENDENCIES -->
+      <thead>
+        <th colspan="2">Project Dependencies</th>
+      </thead>
+      <tbody>
+        <% Object.keys(data.projectDetail.dependencies).forEach(function(key,value){ %>
+        <tr>
+          <td>Package <%= value+1 %></td>
+          <td><%= key %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- include footer file -->
+<%- include('common/footer'); %>

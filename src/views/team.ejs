@@ -1,0 +1,55 @@
+<!-- include header file -->
+<%- include('common/header'); %>
+
+<!-- page content -->
+<div class="contaniner-fluid bg-primary-light-cust">
+
+  <!-- cover image section -->
+  <section>
+    <img
+      src="/images/covers/team.jpg"
+      alt="our team banner"
+      class="w-100"
+      height="300px"
+    />
+  </section>
+
+  <!-- team listing section -->
+  <section>
+    <div class="container py-5">
+      <div class="row">
+        <!-- looping in ejs -->
+        <% data.team.forEach(function(team){ %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body px-5 pt-5">
+              <!-- conditional statement in ejs -->
+              <% if (team.image) { %>
+              <img
+                src="images/team/<%= team.image %>"
+                alt="web development"
+                class="w-100 img-rounded rounded-circle"
+              />
+              <% }else{ %>
+              <img
+                src="images/default/default.png"
+                alt="web development"
+                class="mw-100"
+              />
+              <% } %>
+            </div>
+            <div class="card-footer bg-white border-0">
+              <h4 class="text-center"><%= team.name %></h4>
+              <p class="text-center text-muted"><%= team.designation %></p>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+  
+</div>
+
+<!-- include footer file -->
+<%- include('common/footer'); %>
